@@ -1,8 +1,13 @@
 {
   "name": "logihack-vscode-ext",
   "displayName": "LogiHack",
-  "description": "",
+  "description": "Simple listener for end of execution/build tasks & processes. Exit code is then sent via POST req.",
   "version": "0.0.1",
+  "publisher": "noah",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atharvamp/logihack"
+  },
   "engines": {
     "vscode": "^1.106.1"
   },
