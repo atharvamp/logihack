@@ -55,14 +55,14 @@ export function activate(context: vscode.ExtensionContext) {
 	}))
 
 	// Debug Sessions (Run File / F5 are considered debug sessions for vscode api)
-	//TODO: remove debug listener, F5 sessions are already captured by the terminal listener and actual debugging 
+	// maybe: remove debug listener, F5 sessions are already captured by the terminal listener and actual debugging 
 	// should be a separate usecase.
-	const debugSessionListener = vscode.debug.onDidTerminateDebugSession((session) => {
-		console.log(`Debug Session exit code generated from session: ${session.name}`)
+	// const debugSessionListener = vscode.debug.onDidTerminateDebugSession((session) => {
+		// console.log(`Debug Session exit code generated from session: ${session.name}`)
 
 		// debug session only "ends" if it was run successfully => only success case
-		sendBuildStatus("success");
-	})
+	// 	sendBuildStatus("success");
+	// })
 
 	function sendBuildStatus(status: 'success' | 'failure') {
 		const options = {
@@ -96,7 +96,7 @@ export function activate(context: vscode.ExtensionContext) {
 	// context.subscriptions.push(disposable);
 	context.subscriptions.push(taskEndListener);
 	context.subscriptions.push(terminalEndListener);
-	context.subscriptions.push(debugSessionListener);
+	// context.subscriptions.push(debugSessionListener);
 }
 
 // This method is called when your extension is deactivated
