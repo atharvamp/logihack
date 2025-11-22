@@ -6,6 +6,9 @@ namespace Loupedeck.LogiHackPlugin
 
     public class LogiHackPlugin : Plugin
     {
+        private readonly System.Timers.Timer _periodicEventTimer = new();
+
+
         // Gets a value indicating whether this is an API-only plugin.
         public override Boolean UsesApplicationApiOnly => true;
 
@@ -25,11 +28,25 @@ namespace Loupedeck.LogiHackPlugin
         // This method is called when the plugin is loaded.
         public override void Load()
         {
+
+            this.PluginEvents.AddEvent("buttonPress", "Play Haptic", "Plays a haptic");
+            PluginLog.Info("🔥 Added event 🔥");
+
+            this._periodicEventTimer.AutoReset = true;
+            this._periodicEventTimer.Interval = 3000; // 3 second
+            this._periodicEventTimer.Elapsed += this.OnPeriodicEventTimerElapsed;
+            this._periodicEventTimer.Start();
         }
 
         // This method is called when the plugin is unloaded.
         public override void Unload()
         {
+            this._periodicEventTimer.Stop();
+            this._periodicEventTimer.Elapsed -= this.OnPeriodicEventTimerElapsed;
         }
+
+        private void OnPeriodicEventTimerElapsed(Object sender, System.Timers.ElapsedEventArgs e) =>
+            // Trigger event
+            this.PluginEvents.RaiseEvent("buttonPress");
     }
 }

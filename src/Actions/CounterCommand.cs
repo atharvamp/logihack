@@ -17,7 +17,7 @@ namespace Loupedeck.LogiHackPlugin
         // This method is called when the user executes the command.
         protected override void RunCommand(String actionParameter)
         {
-            this._counter++;
+            this._counter += 5;
             this.ActionImageChanged(); // Notify the plugin service that the command display name and/or image has changed.
             PluginLog.Info($"Counter value is {this._counter}"); // Write the current counter value to the log file.
         }

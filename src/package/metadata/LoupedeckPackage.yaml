@@ -56,6 +56,8 @@ pluginCapabilities:
     # Uncomment the following line if the plugin sends keyboard shortcuts to the target application.
     #- ActivatesApplication
 
+    - HasHapticMapping
+
 # Minimum Loupedeck version supported by the plugin.
 minimumLoupedeckVersion: 6.0
 
