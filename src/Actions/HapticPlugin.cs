@@ -38,7 +38,7 @@ namespace Loupedeck.LogiHackPlugin
             var responseString = "OK";
 
             // 2. CHECK: Is it the right request?
-            if (request.HttpMethod == "POST" && request.Url.AbsolutePath == "/buildFailed")
+            if (request.HttpMethod == "POST" && request.Url.AbsolutePath == "/build/failure")
             {
                 // 3. LOGIC: Do the work HERE directly
                 PluginLog.Info("🔥 HTTP TRIGGER: Build Failed! 🔥");
