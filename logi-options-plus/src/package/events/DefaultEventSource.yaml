@@ -1,3 +1,11 @@
+displayName: LogiHack
+description: Contains Haptic Pulse invokers for successful / failed build processes
+# iconFile: DefaultEventSource.svg
+
 events:
-  - name: buttonPress
-    description: Invokes haptic feedback on button press
+  - name: buttonPressF
+    displayName: Failed Haptic
+    description: Invokes haptic feedback for failure operations
+  - name: buttonPressS
+    displayName: Sucess Haptic
+    description: Invokes haptic feedback for success operations

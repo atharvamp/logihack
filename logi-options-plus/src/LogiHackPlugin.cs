@@ -26,7 +26,9 @@ namespace Loupedeck.LogiHackPlugin
         public override void Load()
         {
 
-            this.PluginEvents.AddEvent("buttonPress", "Play Haptic", "Plays a haptic");
+            this.PluginEvents.AddEvent("buttonPressF", "Play Failure Haptic", "Plays a haptic");
+            PluginLog.Info("🔥 Added event 🔥");
+            this.PluginEvents.AddEvent("buttonPressS", "Play Success Haptic", "Plays a haptic");
             PluginLog.Info("🔥 Added event 🔥");
         }
 
@@ -35,8 +37,8 @@ namespace Loupedeck.LogiHackPlugin
         {
         }
 
-        private void OnPeriodicEventTimerElapsed(Object sender, System.Timers.ElapsedEventArgs e) =>
-            // Trigger event
-            this.PluginEvents.RaiseEvent("buttonPress");
+        // private void OnPeriodicEventTimerElapsed(Object sender, System.Timers.ElapsedEventArgs e) =>
+        //     // Trigger event
+        //     this.PluginEvents.RaiseEvent("buttonPress");
     }
 }

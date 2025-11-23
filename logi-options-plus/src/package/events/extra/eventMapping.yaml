@@ -1,5 +1,7 @@
 haptics:
-  buttonPress:
+  buttonPressF:
     DEFAUlT: sharp_state_change
     MX Master 4: mad
-    
+  buttonPressS:
+    DEFAULT: sharp_state_change
+    MX MASTER 4: completed

@@ -40,13 +40,18 @@ namespace Loupedeck.LogiHackPlugin
             // 2. CHECK: Is it the right request?
             if (request.HttpMethod == "POST" && request.Url.AbsolutePath == "/build/failure")
             {
-                // 3. LOGIC: Do the work HERE directly
                 PluginLog.Info("🔥 HTTP TRIGGER: Build Failed! 🔥");
                 
-                // Update the UI (Optional)
-                this.RunCommand("");
+                this.RunCommand("failure");
 
-                responseString = "Haptic Event Invoked";
+                responseString = "Failure Haptic Event Invoked";
+            } else if (request.HttpMethod == "POST" && request.Url.AbsolutePath == "/build/success")
+            {
+                PluginLog.Info("🥳 HTTP TRIGGER: Build Succeeded! 🥳");
+                
+                this.RunCommand("success");
+
+                responseString = "Success Haptic Event Invoked";
             }
 
             // 4. Respond to Curl
@@ -62,7 +67,14 @@ namespace Loupedeck.LogiHackPlugin
             // PluginLog.Info("👆" + actionParameter);
             PluginLog.Info("👆 BUTTON PRESS: Physical button pushed.");
         
-            this.Plugin.PluginEvents.RaiseEvent("buttonPress");
+            if (actionParameter == "failure")
+            {
+                this.Plugin.PluginEvents.RaiseEvent("buttonPressF");
+            } else if(actionParameter == "success")
+            {
+                this.Plugin.PluginEvents.RaiseEvent("buttonPressS");
+            }
+            // this.Plugin.PluginEvents.RaiseEvent("buttonPress");
         
             PluginLog.Info("Raised event");
         }

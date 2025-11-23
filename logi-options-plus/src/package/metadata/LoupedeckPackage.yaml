@@ -12,7 +12,7 @@ name: LogiHack
 displayName: LogiHack
 
 # Short description of the plugin.
-description: Add a short description of the plugin here.
+description: Allows for MX Master 4 haptic feedback on build and terminal process completions from VSCode.
 
 # Name of the plugin library file.
 pluginFileName: LogiHackPlugin.dll
@@ -76,7 +76,7 @@ licenseUrl: https://opensource.org/licenses/MIT
 # URL of the support page where the users can send improvement suggestions and report bugs.
 # The URL is shown in Loupedeck Marketplace. The page can be for example a GitHub issues page.
 # NOTE: This setting is recommended when publishing the plugin in Loupedeck Marketplace.
-#supportPageUrl: https://github.com/myusername/myplugin/issues
+supportPageUrl: https://github.com/atharvamp/logihack/issues
 
 # URL of the plugin homepage. The URL is shown in Loupedeck Marketplace.
-#homePageUrl: https://github.com/myusername/myplugin
+homePageUrl: https://github.com/atharvamp/logihack
