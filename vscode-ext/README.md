@@ -6,7 +6,7 @@ This extension integrates Visual Studio Code with the Logitech MX Master 4 mouse
 ### Features
 Triggers differeing haptic pulses for build successes & failures
 Automatically detects: 
-- `task.json` task completions (npm, dotnet, make, etc.)
+- `tasks.json` task completions (npm, dotnet, make, etc.)
 - Integrated Terminal commands
 
 ### Requirements 
