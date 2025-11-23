@@ -42,7 +42,7 @@ export function activate(context: vscode.ExtensionContext) {
 	// Terminal Executions
 	const terminalEndListener = vscode.window.onDidEndTerminalShellExecution((event => {
 		// ignore basic terminal commands
-		const ignoredCommands = ['cd', 'ls', 'dir', 'clear', 'cls'];
+		const ignoredCommands = ['cd', 'ls', 'la', 'll', 'clear', 'cls', 'pwd', 'vim', 'man'];
 		const commandName = event.execution.commandLine.value.trim().split(' ')[0];
 
 		if (ignoredCommands.includes(commandName))
