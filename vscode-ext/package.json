@@ -1,0 +1,50 @@
+{
+  "name": "logihack-vscode-ext",
+  "displayName": "LogiHack",
+  "description": "Triggers MX Master 4 haptic feedback on build, debug, and terminal events.",
+  "version": "0.0.1",
+  "publisher": "noah",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atharvamp/logihack"
+  },
+  "icon": "images/optionsplus.png",
+  "engines": {
+    "vscode": "^1.106.1"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "logihack-vscode-ext.helloWorld",
+        "title": "Hello World"
+      }, 
+      {
+        "command": "logihack-vscode-ext.hapticSignal",
+        "title": "LogiHack Haptic Signal"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.106.1",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "typescript-eslint": "^8.46.3",
+    "eslint": "^9.39.1",
+    "typescript": "^5.9.3",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
