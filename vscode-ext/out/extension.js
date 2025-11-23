@@ -69,7 +69,7 @@ function activate(context) {
     // Terminal Executions
     const terminalEndListener = vscode.window.onDidEndTerminalShellExecution((event => {
         // ignore basic terminal commands
-        const ignoredCommands = ['cd', 'ls', 'dir', 'clear', 'cls'];
+        const ignoredCommands = ['cd', 'ls', 'la', 'll', 'clear', 'cls', 'pwd', 'vim', 'man'];
         const commandName = event.execution.commandLine.value.trim().split(' ')[0];
         if (ignoredCommands.includes(commandName))
             return;
@@ -78,13 +78,13 @@ function activate(context) {
         (exitCode == 0) ? sendBuildStatus('failure') : sendBuildStatus('failure');
     }));
     // Debug Sessions (Run File / F5 are considered debug sessions for vscode api)
-    //TODO: remove debug listener, F5 sessions are already captured by the terminal listener and actual debugging 
+    // maybe: remove debug listener, F5 sessions are already captured by the terminal listener and actual debugging 
     // should be a separate usecase.
-    const debugSessionListener = vscode.debug.onDidTerminateDebugSession((session) => {
-        console.log(`Debug Session exit code generated from session: ${session.name}`);
-        // debug session only "ends" if it was run successfully => only success case
-        sendBuildStatus("success");
-    });
+    // const debugSessionListener = vscode.debug.onDidTerminateDebugSession((session) => {
+    // console.log(`Debug Session exit code generated from session: ${session.name}`)
+    // debug session only "ends" if it was run successfully => only success case
+    // 	sendBuildStatus("success");
+    // })
     function sendBuildStatus(status) {
         const options = {
             hostname: LISTENER_HOST,
@@ -112,6 +112,9 @@ function activate(context) {
         req.end();
     }
     // context.subscriptions.push(disposable);
+    context.subscriptions.push(taskEndListener);
+    context.subscriptions.push(terminalEndListener);
+    // context.subscriptions.push(debugSessionListener);
 }
 // This method is called when your extension is deactivated
 function deactivate() { }
