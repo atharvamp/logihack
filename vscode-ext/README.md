@@ -1,71 +1,19 @@
-# logihack-vscode-ext README
+# LogiHack VSCode Extension
 
-This is the README for your extension "logihack-vscode-ext". After writing up a brief description, we recommend including the following sections.
+### "Feel" your build status
+This extension integrates Visual Studio Code with the Logitech MX Master 4 mouse. It triggers the mouse's built-in haptic engine (Smart Shift sensor) to pulse when long-running tasks finish, allowing you to multitask without staring at the terminal.
 
-## Features
+### Features
+Triggers differeing haptic pulses for build successes & failures
+Automatically detects: 
+- `task.json` task completions (npm, dotnet, make, etc.)
+- Integrated Terminal commands
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+### Requirements 
+This extension is Part 1 of 2!! It does not communicate directly with the MX Masters 4 drivers!
+1. **Hardware**: Logitech MX Masters 4 Mouse
+2. **Software**: Logi Options+ installed and device connected.
+3. **Recieve**: This is the Part 2. You must have the Haptic Receiver (Localhost Listener) running in the background to bridge the HTTP signal to the mouse. This is a custom logi actions SDK plugin.
 
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+### Configuration
+By default, the extension targets the local reciever on port 6500.
