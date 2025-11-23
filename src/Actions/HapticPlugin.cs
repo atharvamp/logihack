@@ -26,6 +26,7 @@ namespace Loupedeck.LogiHackPlugin
 
 
         }
+        
 
         private void OnRequest(IAsyncResult result)
         {
@@ -47,7 +48,7 @@ namespace Loupedeck.LogiHackPlugin
                 this.RunCommand("");
 
                 responseString = "Haptic Event Invoked";
-            }
+            } 
 
             // 4. Respond to Curl
             var buffer = Encoding.UTF8.GetBytes(responseString);
